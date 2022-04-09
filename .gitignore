@@ -1,4 +1,7 @@
+test.c
 tail
 *.txt
 makefile
 *.o
+*.so
+*.a

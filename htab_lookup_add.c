@@ -22,6 +22,7 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
 
   new->pair.value = 1;
   new->pair.key = malloc(MAX_WORD_LENGTH);
+  new->next = NULL;
 
   if (new->pair.key == NULL) {
     fprintf(stderr, "Couldn't allocate memory for new pair!\n");
@@ -35,8 +36,8 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
   struct htab_item *current = t->arr_ptr[index];
 
   if (current == NULL) {
-    current = new;
     t->size++;
+    t->arr_ptr[index] = new;
     return &current->pair;
   }
 
