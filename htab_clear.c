@@ -14,6 +14,7 @@ void htab_clear(htab_t *t) {
       to_delete = current;
       current = current->next;
 
+      free((char *)to_delete->pair.key);
       free(to_delete);
     }
     t->arr_ptr[idx] = NULL;
