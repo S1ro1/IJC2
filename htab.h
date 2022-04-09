@@ -4,6 +4,7 @@
 // následující řádky zabrání násobnému vložení:
 #ifndef __HTAB_H__
 #define __HTAB_H__
+#define MAX_WORD_LENGTH 127
 
 #include <stdbool.h> // bool
 #include <string.h>  // size_t
