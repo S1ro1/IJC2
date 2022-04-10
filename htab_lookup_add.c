@@ -21,7 +21,7 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
   }
 
   new->pair.value = 1;
-  new->pair.key = malloc(MAX_WORD_LENGTH);
+  new->pair.key = malloc(MAX_WORD_LENGTH * sizeof(char));
   new->next = NULL;
 
   if (new->pair.key == NULL) {
