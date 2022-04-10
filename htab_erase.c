@@ -25,6 +25,9 @@ bool htab_erase(htab_t *t, htab_key_t key) {
     free((char *)current->pair.key);
     free(current);
     t->size--;
+    if ((float)t->size / t->arr_size < 0.5) {
+      htab_resize(t, (size_t)t->arr_size * 0.5);
+    }
     return true;
   }
 
@@ -38,6 +41,9 @@ bool htab_erase(htab_t *t, htab_key_t key) {
       free((char *)to_delete->pair.key);
       free(to_delete);
       t->size--;
+      if ((float)t->size / t->arr_size < 0.5) {
+        htab_resize(t, (size_t)t->arr_size * 0.5);
+      }
       return true;
     }
     current = current->next;

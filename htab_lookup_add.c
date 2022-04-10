@@ -38,6 +38,9 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
   if (current == NULL) {
     t->size++;
     t->arr_ptr[index] = new;
+    if ((float)t->size / t->arr_size > 2) {
+      htab_resize(t, t->arr_size * 2);
+    }
     return &current->pair;
   }
 
@@ -54,5 +57,8 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
   new->next = t->arr_ptr[index];
   t->arr_ptr[index] = new;
   t->size++;
+  if ((float)t->size / t->arr_size > 2) {
+    htab_resize(t, t->arr_size * 2);
+  }
   return &new->pair;
 }

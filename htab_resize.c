@@ -4,7 +4,7 @@
 void htab_resize(htab_t *t, size_t newnum) {
 
   struct htab_item *current;
-  struct htab_item *to_move;
+  struct htab_item *next_ptr;
 
   struct htab_item **new_arr_ptr = malloc(newnum * sizeof(struct htab_item *));
 
@@ -22,11 +22,14 @@ void htab_resize(htab_t *t, size_t newnum) {
     while (current != NULL) {
       size_t hash = htab_hash_function(current->pair.key);
       size_t index = hash % newnum;
-      to_move = current;
-      new_arr_ptr[index] = to_move;
-      current = current->next;
+      next_ptr = current->next;
+      current->next = new_arr_ptr[index];
+      new_arr_ptr[index] = current;
+      current = next_ptr;
     }
   }
+
+  free(t->arr_ptr);
   t->arr_ptr = new_arr_ptr;
   t->arr_size = newnum;
 }
