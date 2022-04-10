@@ -1,10 +1,6 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 htab_t *htab_init(size_t num) {
   htab_t *hash_table = malloc(sizeof(htab_t));
   hash_table->size = 0;

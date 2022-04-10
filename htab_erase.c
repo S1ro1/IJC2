@@ -1,10 +1,6 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
-#include <stdbool.h>
-#include <stdlib.h>
-#include <string.h>
-
 bool htab_erase(htab_t *t, htab_key_t key) {
   if (!t) {
     return false;

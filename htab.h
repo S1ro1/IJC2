@@ -7,6 +7,7 @@
 #define MAX_WORD_LENGTH 127
 
 #include <stdbool.h> // bool
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> // size_t

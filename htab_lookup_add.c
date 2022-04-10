@@ -1,10 +1,6 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
   size_t hash = htab_hash_function(key);
   size_t index = hash % t->arr_size;

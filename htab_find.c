@@ -1,8 +1,6 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
-#include <string.h>
-
 htab_pair_t *htab_find(htab_t *t, htab_key_t key) {
   if (!t) {
     return NULL;

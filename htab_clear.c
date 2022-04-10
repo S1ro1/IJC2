@@ -1,9 +1,6 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
-#include <stdlib.h>
-#include <string.h>
-
 void htab_clear(htab_t *t) {
   struct htab_item *current;
   struct htab_item *to_delete;
