@@ -7,6 +7,7 @@
 #define MAX_BUFFER_LEN 8
 #define MAX_STR_LEN 6
 
+// TODO split functionality into separate functions
 void read_last_lines(FILE *source, char **output, int n_lines) { ; }
 
 int main(int argc, char *argv[]) {
@@ -24,6 +25,7 @@ int main(int argc, char *argv[]) {
   int i = 0;
   char c;
 
+  // TODO redo for changeable n (number of lines to be printed)
   while (fgets(lines[i % 10], MAX_BUFFER_LEN, source) != NULL) {
     int len = strlen(lines[i % 10]);
     if (lines[i % 10][len - 1] != '\n') {
@@ -43,7 +45,7 @@ int main(int argc, char *argv[]) {
     if (lines[j][len - 1] != '\n') {
       lines[j % 10][len - 1] = '\n';
       if (found_too_long == false) {
-        fprintf(stderr, "Found too long line\n");
+        fprintf(stderr, "Line exceeds the maximal length\n");
       }
       found_too_long = true;
     }
