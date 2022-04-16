@@ -34,10 +34,11 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
   if (current == NULL) {
     t->size++;
     t->arr_ptr[index] = new;
+
     if ((float)t->size / t->arr_size > 2) {
       htab_resize(t, t->arr_size * 2);
     }
-    return &current->pair;
+    return &t->arr_ptr[index]->pair;
   }
 
   while (current != NULL) {

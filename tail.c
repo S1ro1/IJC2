@@ -8,7 +8,6 @@
 #define MAX_STR_LEN 6
 
 // TODO split functionality into separate functions
-void read_last_lines(FILE *source, char **output, int n_lines) { ; }
 
 int main(int argc, char *argv[]) {
   FILE *source;
