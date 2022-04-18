@@ -11,8 +11,6 @@ int tail(FILE *stream, long n_lines) {
     return 0;
   }
 
-  printf("Num of lines is: %lu\n", n_lines);
-
   char **lines = calloc(n_lines, sizeof(char *));
 
   if (!lines) {
