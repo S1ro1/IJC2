@@ -3,8 +3,7 @@
 
 /**
  @brief Function clears table t, and frees it from memory
-
- @param Table t to be cleared
+ @param t Table to be cleared
  @return void
 */
 void htab_free(htab_t *t) {

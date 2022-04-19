@@ -4,7 +4,7 @@
 /**
  @brief Function searches for element in table t with key key
 
- @param Table t in which pair with matching key is to be found
+ @param t Table in which pair with matching key is to be found
  @return Null if no pair was found, else pointer to the found pair
 */
 htab_pair_t *htab_find(htab_t *t, htab_key_t key) {

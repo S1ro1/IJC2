@@ -3,9 +3,8 @@
 
 /**
  @brief Function resizes array of pointers of table t to size newnum
-
- @param Table t whose array should be resized, size_t newnum determining its new
- size
+ @param Table t whose array should be resized
+ @param newnum Number determining its new size
  @return void
 */
 void htab_resize(htab_t *t, size_t newnum) {

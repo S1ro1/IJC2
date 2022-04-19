@@ -1,5 +1,7 @@
 test.c
 test
+Doxyfile
+docs
 tail
 wordcount
 wordcount-dynamic

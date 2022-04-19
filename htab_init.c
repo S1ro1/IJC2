@@ -3,8 +3,7 @@
 
 /**
  @brief Function that initializes empty hash table
-
- @param size_t num which determines the size of array of pointers
+ @param num Number which determines the size of array of pointers
  @return Pointer to initialized table
 */
 htab_t *htab_init(size_t num) {

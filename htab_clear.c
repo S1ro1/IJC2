@@ -3,8 +3,7 @@
 
 /**
  @brief Clears every item in table t
-
- @param Table t to be cleared
+ @param t Table to be cleared
  @return void
 */
 void htab_clear(htab_t *t) {
