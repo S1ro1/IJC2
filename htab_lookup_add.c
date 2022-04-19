@@ -1,6 +1,13 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
+/**
+ @brief Function that adds new item with key key to the table t, if item with
+ matching key already exists, increments its value
+
+ @param Table t in which element with key key is added
+ @return Pointer to pair with matching key
+*/
 htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
   size_t hash = htab_hash_function(key);
   size_t index = hash % t->arr_size;

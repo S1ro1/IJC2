@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_STR_LEN 7 // line length with \n but without \0
+#define MAX_STR_LEN 511 // line length with \n but without \0
 
 int tail(FILE *stream, long n_lines) {
   if (!n_lines) {

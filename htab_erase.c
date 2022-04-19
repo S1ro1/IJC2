@@ -1,6 +1,12 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
+/**
+ @brief Clears an item of table t with input key
+
+ @param Table t from which element with key key should be removed
+ @return True if operation was sucessful, false if no matching key was found
+*/
 bool htab_erase(htab_t *t, htab_key_t key) {
   if (!t) {
     return false;

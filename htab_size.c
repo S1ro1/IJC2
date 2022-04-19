@@ -1,4 +1,10 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
-size_t htab_size(const htab_t *hash_table) { return hash_table->size; }
+/**
+ @brief Function returns number of items in table t
+
+ @param Table t, which number of elements is returned
+ @return Number of elements of table t
+*/
+size_t htab_size(const htab_t *t) { return t->size; }

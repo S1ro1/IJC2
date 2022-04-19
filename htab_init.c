@@ -1,6 +1,12 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
+/**
+ @brief Function that initializes empty hash table
+
+ @param size_t num which determines the size of array of pointers
+ @return Pointer to initialized table
+*/
 htab_t *htab_init(size_t num) {
   htab_t *hash_table = malloc(sizeof(htab_t));
   hash_table->size = 0;

@@ -1,6 +1,12 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
+/**
+ @brief Clears every item in table t
+
+ @param Table t to be cleared
+ @return void
+*/
 void htab_clear(htab_t *t) {
   struct htab_item *current;
   struct htab_item *to_delete;

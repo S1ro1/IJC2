@@ -1,6 +1,13 @@
 #include "hash_tab_struct.h"
 #include "htab.h"
 
+/**
+ @brief Function resizes array of pointers of table t to size newnum
+
+ @param Table t whose array should be resized, size_t newnum determining its new
+ size
+ @return void
+*/
 void htab_resize(htab_t *t, size_t newnum) {
 
   struct htab_item *current;
