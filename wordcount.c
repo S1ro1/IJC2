@@ -5,9 +5,20 @@
 #include "htab.h"
 #include "io.h"
 
+/**
+ Hash table size should be around 1-1.3 of size of data that should be inserted
+ in it, also for better spread of hash function values, its length should be a
+ prime number Initial size is chosen as average number of unique words in book
+ multiplied by 2
+ */
 #define TAB_INITIAL_SIZE 19991
 #define MAX_WORD_LENGTH 127
 
+/**
+ @brief Function to print each key-value pair
+ @param pair Pointer to pair to be printed
+ @return void
+ */
 void myPrint(htab_pair_t *pair) { printf("%s\t%d\n", pair->key, pair->value); }
 
 int main(void) {

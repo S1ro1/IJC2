@@ -6,6 +6,13 @@
 
 #define MAX_STR_LEN 511 // line length with \n but without \0
 
+/**
+ @brief Function prints last n_lines of lines from input stream
+ @param stream Input stream that is being read from
+ @param n_lines Number determining how many last lines are to printed
+ @return integer 0 in case of sucess, else 1
+ */
+
 int tail(FILE *stream, long n_lines) {
   if (!n_lines) {
     return 0;

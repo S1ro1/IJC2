@@ -3,6 +3,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ @brief Function reads word by word from stream specified by parameter f and
+ copies the word into word parameter
+ @param word array of chars in which read word is copied
+ @param max Number determining max length of read word
+ @param f Input stream that is being read
+ @return Length of read word in case of sucess, else -1
+ */
 int read_word(char *word, int max, FILE *f) {
   if (!f) {
     fprintf(stderr, "Couldn't open file!\n");
