@@ -1,3 +1,7 @@
+// hash_tab_struct.h
+// Řešení IJC-DU2, příklad b), 19.4.2022
+// Autor: Matej Sirovatka, FIT
+// Přeloženo: gcc 10.2.1 20210110
 #ifndef HASH_TAB_H
 #define HASH_TAB_H
 

@@ -1,9 +1,14 @@
+// htab_lookup_add.c
+// Řešení IJC-DU2, příklad b), 19.4.2022
+// Autor: Matej Sirovatka, FIT
+// Přeloženo: gcc 10.2.1 20210110
 #include "hash_tab_struct.h"
 #include "htab.h"
 
 /**
  @brief Function that adds new item with key key to the table t, if item with
- matching key already exists, increments its value
+ matching key already exists, increments its value, if density of table gets
+ bigger than 1.25, it multiplies the size by 2
  @param t Table in which element with key key is added
  @return Pointer to pair with matching key
 */
@@ -41,7 +46,9 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
     t->size++;
     t->arr_ptr[index] = new;
 
-    if ((float)t->size / t->arr_size > 2) {
+    // Ideal hash table size is to fit approx. 1.30x the data its expected to go
+    // in, that's why number 1.25 was chosen
+    if ((float)t->size / t->arr_size > 1.25) {
       htab_resize(t, t->arr_size * 2);
     }
     return &t->arr_ptr[index]->pair;
@@ -60,7 +67,7 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
   new->next = t->arr_ptr[index];
   t->arr_ptr[index] = new;
   t->size++;
-  if ((float)t->size / t->arr_size > 2) {
+  if ((float)t->size / t->arr_size > 1.25) {
     htab_resize(t, t->arr_size * 2);
   }
   return &new->pair;

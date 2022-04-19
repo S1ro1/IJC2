@@ -1,12 +1,10 @@
-test.c
-test
 Doxyfile
 docs
 tail
 wordcount
 wordcount-dynamic
 *.txt
-makefile
 *.o
 *.so
 *.a
+*.cc
