@@ -26,7 +26,7 @@ int read_word(char *word, int max, FILE *f) {
     return -1;
   }
 
-  bool found_too_long = false;
+  static bool found_too_long = false;
 
   int chars = 0;
   int current;
@@ -40,7 +40,10 @@ int read_word(char *word, int max, FILE *f) {
       if (chars > max - 1) {
         if (found_too_long == false) {
           found_too_long = true;
-          fprintf(stderr, "Too long word foun\n");
+          fprintf(stderr, "Too long word found!\n");
+          while (!isspace(fgetc(f))) {
+            ;
+          }
         }
         return chars;
       }

@@ -16,7 +16,6 @@
  multiplied by 2
  */
 #define TAB_INITIAL_SIZE 19991
-#define MAX_WORD_LENGTH 127
 
 /**
  @brief Function to print each key-value pair
@@ -34,7 +33,7 @@ int main(void) {
     goto tab_malloc_error;
   }
 
-  char word[128] = {0};
+  char word[MAX_WORD_LENGTH + 1] = {0};
   int current_length = 0;
 
   while ((current_length = read_word(word, MAX_WORD_LENGTH, f)) != -1) {
@@ -42,6 +41,8 @@ int main(void) {
 
     if (current_pair == NULL) {
       goto tab_malloc_error;
+    } else {
+      current_pair->value++;
     }
 
     memset(word, 0, MAX_WORD_LENGTH + 1);

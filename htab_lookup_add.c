@@ -27,8 +27,8 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
     return NULL;
   }
 
-  new->pair.value = 1;
-  new->pair.key = malloc(MAX_WORD_LENGTH * sizeof(char));
+  new->pair.value = 0;
+  new->pair.key = malloc((strlen(key) + 1) * sizeof(char));
   new->next = NULL;
 
   if (new->pair.key == NULL) {
@@ -51,12 +51,11 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key) {
     if ((float)t->size / t->arr_size > 1.25) {
       htab_resize(t, t->arr_size * 2);
     }
-    return &t->arr_ptr[index]->pair;
+    return &new->pair;
   }
 
   while (current != NULL) {
     if (strcmp(current->pair.key, key) == 0) {
-      current->pair.value++;
       free((char *)new->pair.key);
       free(new);
       return &current->pair;

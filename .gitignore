@@ -3,8 +3,11 @@ docs
 tail
 wordcount
 wordcount-dynamic
+wordcount-
 *.txt
 *.o
 *.so
 *.a
 *.cc
+*.csv
+*.zip
