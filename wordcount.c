@@ -22,7 +22,9 @@
  @param pair Pointer to pair to be printed
  @return void
  */
-void myPrint(htab_pair_t *pair) { printf("%s\t%d\n", pair->key, pair->value); }
+void print_pairs(htab_pair_t *pair) {
+  printf("%s\t%d\n", pair->key, pair->value);
+}
 
 int main(void) {
   FILE *f = stdin;
@@ -48,12 +50,14 @@ int main(void) {
     memset(word, 0, MAX_WORD_LENGTH + 1);
   }
 
-  htab_for_each(table, myPrint);
+  htab_for_each(table, print_pairs);
 
   htab_free(table);
 
   return 0;
-
+/**
+ @brief Error handling if malloc in htab fails
+ */
 tab_malloc_error:
   fprintf(stderr, "Error allocating memory!\n");
   htab_free(table);

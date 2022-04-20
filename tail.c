@@ -42,7 +42,7 @@ int tail(FILE *stream, long n_lines) {
 
     if (lines[current_line % n_lines][len - 1] != '\n') {
       while ((c = getc(stream)) != '\n') {
-        ;
+        ; // Skip the rest of the long line
       }
     }
     current_line++;
