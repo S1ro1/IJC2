@@ -13,6 +13,10 @@
 */
 void htab_resize(htab_t *t, size_t newnum) {
 
+  if (newnum < 1) {
+    return; // float division rounds down, if newsize is 0, there would be
+            // division by 0 issues
+  }
   struct htab_item *current;
   struct htab_item *next_ptr;
 

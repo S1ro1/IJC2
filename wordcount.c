@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#include "hash_tab_struct.h"
 #include "htab.h"
 #include "io.h"
 

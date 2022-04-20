@@ -24,35 +24,32 @@ bool htab_erase(htab_t *t, htab_key_t key) {
   }
 
   struct htab_item *current = t->arr_ptr[index];
-  struct htab_item *to_delete = NULL;
+  struct htab_item *previous = NULL;
 
-  if (strcmp(current->pair.key, key) == 0) {
-    t->arr_ptr[index] = current->next;
-    free((char *)current->pair.key);
-    free(current);
-    t->size--;
-    if ((float)t->size / t->arr_size < 0.5) {
-      htab_resize(t, (size_t)(t->arr_size * 0.5));
-    }
-    return true;
-  }
-
-  while (current != NULL) {
-    if (current->next == NULL) {
-      return false;
-    }
-    if (strcmp(current->next->pair.key, key) == 0) {
-      to_delete = current->next;
-      current->next = to_delete->next;
-      free((char *)to_delete->pair.key);
-      free(to_delete);
-      t->size--;
-      if ((float)t->size / t->arr_size < 0.5) {
-        htab_resize(t, (size_t)t->arr_size * 0.5);
+  if (!current) {
+    return false;
+  } else {
+    while (current) {
+      if (!strcmp(current->pair.key, key)) {
+        struct htab_item *to_delete = NULL;
+        if (!previous) {
+          to_delete = t->arr_ptr[index];
+          t->arr_ptr[index] = t->arr_ptr[index]->next;
+        } else {
+          to_delete = current;
+          previous->next = current->next;
+        }
+        free((void *)to_delete->pair.key);
+        free(to_delete);
+        t->size--;
+        if ((float)t->size / t->arr_size < 0.5) {
+          htab_resize(t, (size_t)(t->arr_size * 0.5));
+        }
+        return true;
       }
-      return true;
+      previous = current;
+      current = current->next;
     }
-    current = current->next;
   }
   return false;
 }
